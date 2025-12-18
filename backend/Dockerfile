@@ -11,10 +11,10 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-COPY requirements/prod.txt requirements/prod.txt
+COPY requirements/ requirements/
 
 RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r requirements/prod.txt
+    && pip install --no-cache-dir -r ./requirements/prod.txt
 
 COPY . .
 
