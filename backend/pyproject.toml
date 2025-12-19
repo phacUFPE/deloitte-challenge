@@ -4,15 +4,11 @@ target-version = ["py312"]
 
 [tool.ruff]
 line-length = 88
-target-version = "py312"
-select = [
-  "E",   # pycodestyle errors
-  "F",   # pyflakes
-  "I",   # import sorting (isort)
-  "B",   # flake8-bugbear
-  "UP",  # pyupgrade
-]
-extend-select = ["DJ"]
+
+[tool.ruff.lint]
+select = ["E", "F", "DJ"]
+extend-select = ["I"]
+per-file-ignores = { "__init__.py" = ["F401"] }
 
 [tool.ruff.per-file-ignores]
 "**/migrations/*.py" = ["E501"]
