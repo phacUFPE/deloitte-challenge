@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.9"
 
 services:
   database:
@@ -10,7 +10,7 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "postgres"]
+      test: ["CMD", "pg_isready", "-U", "root", "-d", "products_db"]
       interval: 5s
       timeout: 3s
       retries: 5
@@ -27,6 +27,7 @@ services:
     depends_on:
       database:
         condition: service_healthy
+    restart: unless-stopped
 
 
 volumes:
