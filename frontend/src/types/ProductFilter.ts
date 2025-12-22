@@ -1,4 +1,4 @@
 export interface ProductFilter {
-    status?: string;
-    search?: string;
+  status?: string
+  search?: string
 }

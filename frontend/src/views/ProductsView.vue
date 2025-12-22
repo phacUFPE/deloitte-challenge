@@ -59,9 +59,9 @@ watch(
 watch(page, updateParams)
 
 watch(data, (newData) => {
-  if (!newData || !newData.results) return;
-  next.value = newData.next;
-  products.value.push(...newData.results);
+  if (!newData || !newData.results) return
+  next.value = newData.next
+  products.value.push(...newData.results)
 })
 
 function onFiltersUpdate(val: typeof filters.value) {
@@ -114,9 +114,7 @@ onBeforeUnmount(() => {
     <ProductFilter :initialFilters="filters" @update:filters="onFiltersUpdate" />
 
     <v-row class="justify-center">
-      <h2 v-if="!products.length && !loading">
-        No Products.
-      </h2>
+      <h2 v-if="!products.length && !loading">No Products.</h2>
       <v-col v-for="product in products" :key="product.id" cols="12" md="4">
         <SimpleProductCard :product="product" @click="openDialog(product)" />
       </v-col>
