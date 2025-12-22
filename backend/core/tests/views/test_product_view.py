@@ -3,7 +3,7 @@ from datetime import date
 from django.contrib.auth import get_user_model
 from rest_framework.test import APITestCase
 
-from core.models import Product
+from core.models import Product, Status
 
 User = get_user_model()
 
@@ -33,6 +33,32 @@ class ListProductTest(APITestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), self.products_amount)
+
+    def test_search(self):
+        Product.objects.create(
+            title="Search Product",
+            description="Search Product description",
+            date=date.today(),
+        )
+        response = self.client.get("/products/?search=search")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 1)
+
+    def test_filter_status(self):
+        product1 = self.products[0]
+        product2 = self.products[1]
+
+        product1.status = Status.BLOCKED
+        product1.save()
+
+        product2.status = Status.BLOCKED
+        product2.save()
+
+        response = self.client.get("/products/?status=BLOCKED")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 2)
 
 
 class FavoriteProductTest(APITestCase):
