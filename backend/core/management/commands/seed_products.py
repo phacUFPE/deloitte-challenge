@@ -36,7 +36,7 @@ class Command(BaseCommand):
         for i in range(total):
             products.append(
                 Product(
-                    title=fake.catch_phrase()[:100],
+                    title=" ".join(fake.words(nb=3)).title()[:100],
                     description=fake.text(max_nb_chars=250),
                     image=f"products/product_{i+1:03}.jpg",
                     date=start_date + timedelta(days=i),
