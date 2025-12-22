@@ -7,6 +7,12 @@ const routes = [
     name: 'products',
     component: ProductsView,
   },
+  {
+    path: '/items/:id',
+    name: 'item-details',
+    component: ProductsView,
+    props: true,
+  },
 ]
 
 export default createRouter({
