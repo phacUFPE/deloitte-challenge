@@ -2,9 +2,14 @@
 import { ref, watch } from 'vue'
 import type { ProductFilter } from '@/types/ProductFilter'
 
-const props = defineProps<{
-  initialFilters?: ProductFilter
-}>()
+const props = withDefaults(
+  defineProps<{
+    initialFilters?: ProductFilter
+  }>(),
+  {
+    initialFilters: () => ({}),
+  }
+)
 
 const emit = defineEmits<{
   (e: 'update:filters', filters: Record<string, string>): void
