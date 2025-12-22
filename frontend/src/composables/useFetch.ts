@@ -1,10 +1,10 @@
-import { ref, watch } from 'vue'
+import { type Ref, ref, watch } from 'vue'
 import { AxiosError, type AxiosRequestConfig } from 'axios'
 
 import http from '@/api/http'
 
 export function useFetch<T>(
-  initialUrl: string,
+  initialUrl: Ref<string>,
   initialParams: Record<string, string> = {},
   config?: AxiosRequestConfig
 ) {
