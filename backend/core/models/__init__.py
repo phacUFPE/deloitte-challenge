@@ -1,3 +1,3 @@
-from core.models.product import Product
+from core.models.product import Product, Status
 
-__all__ = ["Product"]
+__all__ = ["Product", "Status"]
