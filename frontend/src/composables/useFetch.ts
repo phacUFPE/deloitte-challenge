@@ -19,6 +19,8 @@ export function useFetch<T>(
     loading.value = true
     error.value = null
 
+    await new Promise(resolve => setTimeout(resolve, 2000))
+
     try {
       const response = await http.get<T>(url.value, {
         ...config,
