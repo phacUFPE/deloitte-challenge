@@ -30,7 +30,9 @@ export function useFetch<T>(
       return response.data
     } catch (err: unknown) {
       if (err instanceof AxiosError) {
-        error.value = err.message || 'An error occurred'
+        error.value = err?.message ?? 'Unknown error'
+      } else {
+        error.value = 'Unknown Error'
       }
       console.error(err)
     } finally {
