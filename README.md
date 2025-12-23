@@ -1,6 +1,12 @@
 <details>
 <summary>PT-BR</summary>
 <details>
+<summary>Rodando o projeto</summary>
+
+# Rodando o projeto
+Basta rodar o comando `docker compose up --build`, para não deixar o terminal bloqueado `docker compose up --build -d`
+</details>
+<details>
 <summary>Descrição</summary>
 
 # Case Técnico — Fullstack (Vue 3 + Django)
@@ -138,6 +144,12 @@ Terminaria o sistema de favoritar como mencionando utilizando relação many to 
 
 <details>
 <summary>EN</summary>
+<details>
+<summary>Running the application</summary>
+
+# Running the application
+Run the command `docker compose up --build`, and to not block the terminal run `docker compose up --build -d`
+</details>
 <details>
 <summary>Description</summary>
 
